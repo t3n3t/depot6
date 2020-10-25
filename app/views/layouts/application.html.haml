@@ -13,9 +13,9 @@
       %h1= @page_title
     %section.content
       %nav.side_nav
-        - if @cart
-          .carts#cart
-            = render @cart
+        .carts#cart
+          = render_if @cart && @cart.line_items.any?, @cart
+
         %ul
           %li= link_to 'Home', '/'
           %li= link_to 'Questions', '/questions'
